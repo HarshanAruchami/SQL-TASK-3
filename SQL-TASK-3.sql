@@ -1,0 +1,61 @@
+--DEPARTMENT TABLE
+create table DEPARTMENT
+(
+DEPTID int PRIMARY KEY,--PRIMARY KEY
+DEPTNAME varchar(20)
+)
+
+--INSERTING RECORDS
+insert into DEPARTMENT values (100,'DEVELOPER'),(101,'UI/UX');
+
+--SELECT QUERY
+select * from DEPARTMENT;
+
+--DROP TABLE
+DROP TABLE DEPARTMENT
+
+----------------------------------------------------------------------
+--ADDRESS TABLE
+create table ADDRESS
+(
+ADDRESSID int PRIMARY KEY,--PRIMARY KEY
+CITY varchar(20),
+STATE varchar(20),
+PINCODE int
+)
+
+--INSERTING RECORDS
+insert into ADDRESS values (1,'Mannford','Oklahoma(OK)',74044),(2,'Sidney','Ohio(OH)',45365);
+
+--SELECT QUERY
+select * from ADDRESS;
+
+----------------------------------------------------------------------
+--EMPLOYEE TABLE
+create table EMPLOYEE
+(
+ID int PRIMARY KEY,--PRIMARY KEY
+NAME varchar(20),
+DESIGNATION varchar(20),
+DEPTID int REFERENCES DEPARTMENT(DEPTID),
+MOBILE1 BIGINT UNIQUE,
+MOBILE2 BIGINT UNIQUE,
+STREETADDRESS varchar(20),
+ADDRESSID int REFERENCES ADDRESS(ADDRESSID)
+)
+
+--INSERTING RECORDS
+insert into EMPLOYEE values (1,'JOHN','DEVELOPER',100,9865741236,6325478962,'234 HINTON Rd',1)
+insert into EMPLOYEE values (2,'JAMIE','DESIGNER',101,7893245698,NULL,'214 Doorley Rd',2)
+insert into EMPLOYEE values (3,'JOHN','DEVELOPER',100,5647896523,9856741236,'234 HINTON Rd',1)
+
+--SELECT QUERY
+select * from EMPLOYEE;
+
+--DROP TABLE
+DROP TABLE EMPLOYEE;
+
+
+
+
+
